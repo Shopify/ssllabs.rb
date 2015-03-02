@@ -7,6 +7,7 @@ Ruby gem for Qualys SSL Labs server test.
 * All API objects described in the [SSL Labs API docs](https://github.com/ssllabs/ssllabs-scan/blob/master/ssllabs-api-docs.md) are exposed as native ruby objects.
 * Properties are accessed with "underscored" names, i.e. `endpoint.host_start_time` will return the `hostStartTime` field from the API response.
 * All boolean properties are suffixed with the `?` symbol, so `endpoint.vuln_beast?` will return the `vulnBeast` field from the API response.
+* After each successful request, the latest values for the `X-Max-Assessments` and `X-Current-Assessments` headers are available at `api.current_assessments` and `api.max_assessments`.
 
 ## Install it
 
