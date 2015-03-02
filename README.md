@@ -13,7 +13,7 @@ Ruby gem for Qualys SSL Labs server test.
 
 Add the following line to your Gemfile:
 ```ruby
-gem github: 'Shopify/ssllabs.rb', require: 'ssllabs'
+gem 'ssllabs', github: 'Shopify/ssllabs.rb', require: 'ssllabs'
 ```
 
 ## Use it (as a gem)
