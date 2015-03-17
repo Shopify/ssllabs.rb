@@ -23,7 +23,7 @@ module Ssllabs
     end
 
     def self.to_attr_name(name)
-      name.to_s.gsub(/\?$/,'').underscore
+      name.to_s.gsub(/\?$/,'').gsub(/URI/,'Uri').underscore
     end
 
     def self.field_methods(name)
@@ -76,13 +76,28 @@ module Ssllabs
       obj
     end
 
-    def to_json(opts={})
+    def to_hash(with_api_names: false)
       obj = {}
       self.class.all_attributes.each do |api_name|
         v = instance_variable_get("@#{api_name}")
-        obj[api_name] = v
+        key_name = with_api_names ? api_name : self.class.to_attr_name(api_name)
+        obj[key_name] = to_hash_value(v, with_api_names)
       end
-      obj.to_json
+      obj
+    end
+
+    def to_hash_value(entry, with_api_names)
+      if entry.respond_to?(:to_hash)
+        entry.to_hash(with_api_names: with_api_names)
+      elsif entry.is_a?(Array)
+        entry.map { |entry| to_hash_value(entry, with_api_names) }
+      else
+        entry
+      end
+    end
+
+    def to_json(opts={})
+      to_hash(with_api_names: true).to_json
     end
   end
 end

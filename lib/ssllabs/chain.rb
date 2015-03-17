@@ -1,12 +1,7 @@
 module Ssllabs
   class Chain < ApiObject
     has_objects_list :certs, ChainCert
-    has_fields :subject,
-      :label,
-      :issuerSubject,
-      :issuerLabel,
-      :issues,
-      :raw
+    has_fields :issues
 
     def valid?
       issues == 0
