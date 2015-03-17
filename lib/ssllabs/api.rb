@@ -19,7 +19,11 @@ module Ssllabs
     def request(name, params = {})
       name = name.to_s.camelize(:lower)
       uri = URI("#{API_LOCATION}#{name}?#{params.to_query}")
-      r = Net::HTTP.get_response(uri)
+      http = Net::HTTP.new(uri.host, uri.port)
+      http.use_ssl = true
+      http.verify_mode = OpenSSL::SSL::VERIFY_NONE
+      request = Net::HTTP::Get.new(uri.request_uri)
+      r = http.request(request)
       if r.code.to_i == 200
         @max_assessments = r['X-Max-Assessments']
         @current_assessments = r['X-Current-Assessments']
