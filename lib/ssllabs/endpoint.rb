@@ -6,6 +6,7 @@ module Ssllabs
       :statusDetails,
       :statusDetailsMessage,
       :grade,
+      :gradeTrustIgnored,
       :hasWarnings?,
       :isExceptional?,
       :progress,

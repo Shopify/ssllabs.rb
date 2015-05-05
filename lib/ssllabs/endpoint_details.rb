@@ -21,6 +21,8 @@ module Ssllabs
       :npnProtocols,
       :sessionTickets,
       :ocspStapling?,
+      :staplingRevocationStatus,
+      :staplingRevocationErrorMessage,
       :sniRequired?,
       :httpStatusCode,
       :httpForwarding,
@@ -32,6 +34,9 @@ module Ssllabs
       :heartbeat?,
       :openSslCcs,
       :poodleTls,
-      :fallbackScsv?
+      :fallbackScsv?,
+      :poodle?,
+      :freak?,
+      :hasSct?
   end
 end
