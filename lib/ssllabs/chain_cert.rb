@@ -2,10 +2,19 @@ module Ssllabs
   class ChainCert < ApiObject
     has_fields :subject,
       :label,
+      :notBefore,
+      :notAfter,
       :issuerSubject,
       :issuerLabel,
+      :sigAlg,
       :issues,
-      :raw
+      :keyAlg,
+      :keySize,
+      :keyStrength,
+      :revocationStatus,
+      :crlRevocationStatus,
+      :ocspRevocationStatus,
+      :raw,
 
     def valid?
       issues == 0

@@ -12,9 +12,12 @@ module Ssllabs
       :crlURIs,
       :ocspURIs,
       :revocationStatus,
+      :crlRevocationStatus,
+      :ocspRevocationStatus,
       :sgc?,
       :validationType,
-      :issues
+      :issues,
+      :sct?,
 
     def valid?
       issues == 0
