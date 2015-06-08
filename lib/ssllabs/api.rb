@@ -18,7 +18,7 @@ module Ssllabs
 
     def request(name, params = {})
       name = name.to_s.camelize(:lower)
-      uri = URI("#{API_LOCATION}#{name}?#{params.to_query}")
+      uri = URI("#{API_LOCATION}#{name}?#{URI.encode_www_form(params)}")
       r = Net::HTTP.get_response(uri)
       if r.code.to_i == 200
         @max_assessments = r['X-Max-Assessments']

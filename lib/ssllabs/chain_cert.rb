@@ -14,7 +14,7 @@ module Ssllabs
       :revocationStatus,
       :crlRevocationStatus,
       :ocspRevocationStatus,
-      :raw,
+      :raw
 
     def valid?
       issues == 0
