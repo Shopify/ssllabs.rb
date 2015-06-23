@@ -37,6 +37,10 @@ module Ssllabs
       :fallbackScsv?,
       :poodle?,
       :freak?,
-      :hasSct?
+      :hasSct,
+      :dhPrimes,
+      :dhUsesKnownPrimes,
+      :dhYsReuse?,
+      :logjam?
   end
 end
