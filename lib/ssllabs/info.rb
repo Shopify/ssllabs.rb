@@ -5,6 +5,7 @@ module Ssllabs
       :clientMaxAssessments,
       :maxAssessments,
       :currentAssessments,
-      :messages
+      :messages,
+      :newAssessmentCoolOff
   end
 end
