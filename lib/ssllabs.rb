@@ -1,6 +1,6 @@
 
 module Ssllabs
-  API_LOCATION = 'https://api.dev.ssllabs.com/api/fa78d5a4/'
+  API_LOCATION = 'https://api.ssllabs.com/api/v2/'
 end
 
 require 'ssllabs/api'
@@ -20,5 +20,3 @@ require 'ssllabs/endpoint_details'
 require 'ssllabs/endpoint'
 require 'ssllabs/host'
 require 'ssllabs/status_codes'
-
-

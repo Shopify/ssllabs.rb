@@ -14,6 +14,8 @@ module Ssllabs
       :revocationStatus,
       :crlRevocationStatus,
       :ocspRevocationStatus,
+      :sha1Hash,
+      :pinSha256,
       :sgc?,
       :validationType,
       :issues,

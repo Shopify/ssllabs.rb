@@ -27,6 +27,10 @@ module Ssllabs
       :httpStatusCode,
       :httpForwarding,
       :supportsRc4?,
+      :stsStatus,
+      :stsPreload,
+      :rc4Only,
+      :preloadChecks,
       :forwardSecrecy,
       :rc4WithModern?
     has_object_ref :sims, SimDetails
