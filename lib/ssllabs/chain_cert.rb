@@ -9,6 +9,8 @@ module Ssllabs
       :sigAlg,
       :issues,
       :keyAlg,
+      :sha1Hash,
+      :pinSha256,
       :keySize,
       :keyStrength,
       :revocationStatus,
