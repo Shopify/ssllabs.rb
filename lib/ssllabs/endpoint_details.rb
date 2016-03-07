@@ -36,7 +36,10 @@ module Ssllabs
       :rc4Only,
       :preloadChecks,
       :forwardSecrecy,
-      :rc4WithModern?
+      :rc4WithModern?,
+      :drownHosts,
+      :drownErrors,
+      :drownVulnerable?
     has_object_ref :sims, SimDetails
     has_fields :heartbleed?,
       :heartbeat?,
