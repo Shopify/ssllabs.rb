@@ -87,9 +87,7 @@ module Ssllabs
     end
 
     def to_hash_value(entry, with_api_names)
-      if entry.respond_to?(:to_hash)
-        entry.to_hash(with_api_names: with_api_names)
-      elsif entry.is_a?(Array)
+      if entry.is_a?(Array)
         entry.map { |entry| to_hash_value(entry, with_api_names) }
       else
         entry
