@@ -19,7 +19,8 @@ module Ssllabs
       :sgc?,
       :validationType,
       :issues,
-      :sct?
+      :sct?,
+      :mustStaple
 
     def valid?
       issues == 0

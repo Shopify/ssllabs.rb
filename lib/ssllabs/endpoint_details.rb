@@ -39,7 +39,8 @@ module Ssllabs
       :rc4WithModern?,
       :drownHosts,
       :drownErrors,
-      :drownVulnerable?
+      :drownVulnerable?,
+      :openSSLLuckyMinus20
     has_object_ref :sims, SimDetails
     has_fields :heartbleed?,
       :heartbeat?,
