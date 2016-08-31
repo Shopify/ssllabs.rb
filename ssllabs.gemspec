@@ -17,7 +17,7 @@ Gem::Specification.new do |s|
   s.files = Dir["{app,config,db,lib}/**/*", "MIT-LICENSE", "Rakefile", "README.rdoc"]
   s.test_files = Dir["test/**/*"]
 
-  s.add_dependency "activesupport"
-  s.add_dependency "json"
-  s.add_dependency "net"
+  s.add_dependency "activesupport", '~> 0'
+  s.add_dependency "json", '~> 0'
+  s.add_dependency "net", '~> 0'
 end
