@@ -1,3 +1,3 @@
 module Ssllabs
-  VERSION = "1.11.7"
+  VERSION = "1.11.8"
 end
