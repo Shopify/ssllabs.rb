@@ -42,7 +42,9 @@ module Ssllabs
       :drownVulnerable?,
       :openSSLLuckyMinus20,
       :chaCha20Preference,
-      :supportsAlpn
+      :supportsAlpn,
+      :protocolIntolerance,
+      :miscIntolerance
     has_object_ref :sims, SimDetails
     has_fields :heartbleed?,
       :heartbeat?,
