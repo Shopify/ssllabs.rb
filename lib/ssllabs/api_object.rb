@@ -69,8 +69,6 @@ module Ssllabs
           obj.instance_variable_set("@#{name}", value.map { |v| @lists[name].load(v) }) unless value.nil?
         elsif @refs.key?(name)
           obj.instance_variable_set("@#{name}", @refs[name].load(value)) unless value.nil?
-        else
-          raise ArgumentError, "#{name} is not an attribute of object #{self.name}"
         end
       end
       obj
