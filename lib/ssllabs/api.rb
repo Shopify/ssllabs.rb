@@ -31,7 +31,7 @@ module Ssllabs
         uri_proxy = URI.parse(ENV['socks_proxy'])
         proxy_user, proxy_pass = nil
         proxy_user, proxy_pass = uri_proxy.userinfo.split(/:/) if uri_proxy.userinfo
-        proxy = Net::HTTP::SOCKSProxy(uri_proxy.host,uri_proxy.port,proxy_user,proxy_pass)
+        proxy = Net::HTTP::SOCKSProxy(uri_proxy.host,uri_proxy.port)
       end
       if proxy.nil?
         r = Net::HTTP.get_response(uri)
