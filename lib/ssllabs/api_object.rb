@@ -74,7 +74,7 @@ module Ssllabs
       obj
     end
 
-    def to_hash(with_api_names: false)
+    def to_api_hash(with_api_names: false)
       obj = {}
       self.class.all_attributes.each do |api_name|
         v = instance_variable_get("@#{api_name}")
@@ -85,8 +85,8 @@ module Ssllabs
     end
 
     def to_hash_value(entry, with_api_names)
-      if entry.respond_to?(:to_hash)
-        entry.to_hash(with_api_names: with_api_names)
+      if entry.respond_to?(:to_api_hash)
+        entry.to_api_hash(with_api_names: with_api_names)
       elsif entry.is_a?(Array)
         entry.map { |entry| to_hash_value(entry, with_api_names) }
       else
@@ -95,7 +95,7 @@ module Ssllabs
     end
 
     def to_json(opts={})
-      to_hash(with_api_names: true).to_json
+      to_api_hash(with_api_names: true).to_json
     end
   end
 end
