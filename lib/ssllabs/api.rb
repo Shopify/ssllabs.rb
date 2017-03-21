@@ -1,5 +1,6 @@
 require 'active_support/core_ext/hash'
 require 'net/http'
+require 'socksify/http'
 
 module Ssllabs
   class InvocationError < StandardError; end
@@ -19,7 +20,24 @@ module Ssllabs
     def request(name, params = {})
       name = name.to_s.camelize(:lower)
       uri = URI("#{API_LOCATION}#{name}?#{URI.encode_www_form(params)}")
-      r = Net::HTTP.get_response(uri)
+      r = nil
+      proxy = nil
+      if ENV['http_proxy']
+        uri_proxy = URI.parse(ENV['http_proxy'])
+        proxy_user, proxy_pass = nil
+        proxy_user, proxy_pass = uri_proxy.userinfo.split(/:/) if uri_proxy.userinfo
+        proxy = Net::HTTP::Proxy(uri_proxy.host,uri_proxy.port,proxy_user,proxy_pass)
+      elsif ENV['socks_proxy']
+        uri_proxy = URI.parse(ENV['socks_proxy'])
+        proxy_user, proxy_pass = nil
+        proxy_user, proxy_pass = uri_proxy.userinfo.split(/:/) if uri_proxy.userinfo
+        proxy = Net::HTTP::SOCKSProxy(uri_proxy.host,uri_proxy.port)
+      end
+      if proxy.nil?
+        r = Net::HTTP.get_response(uri)
+      else
+        r = proxy.get_response(uri)
+      end
       if r.code.to_i == 200
         @max_assessments = r['X-Max-Assessments']
         @current_assessments = r['X-Current-Assessments']

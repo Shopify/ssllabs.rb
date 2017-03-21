@@ -20,4 +20,5 @@ Gem::Specification.new do |s|
   s.add_dependency "activesupport", '>= 4.2.0'
   s.add_dependency "json", '>= 1.7'
   s.add_dependency "net", '~> 0.3'
+  s.add_dependency "socksify"
 end
